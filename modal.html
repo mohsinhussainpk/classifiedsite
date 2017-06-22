@@ -13,8 +13,7 @@
 <div class="container">
     <h2>Modal Example</h2>
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Open Modal 1</button>
-    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">Open Modal 2</button>
+    <button type="button" class="btn btn-info btn-lg" id="btnModal" data-toggle="modal" data-target="#myModal1">Open Modal 1</button>
 
 
     <!-- Modal -->
@@ -25,13 +24,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title">Modal 1 Header</h4>
+                    <h4 class="modal-title"></h4>
                 </div>
                 <div class="modal-body">
-                    <p>Some text in the modal.</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-default" id="previous">Previous</button>
+                    <button type="button" class="btn btn-default" id="next" >Next</button>
+                    <button type="button" class="btn btn-default" id="close" data-dismiss="modal">Close</button>
+
                 </div>
             </div>
 
@@ -59,6 +60,65 @@
     </div>
 -->
 </div>
+
+<script>
+
+    var modalTitle = document.getElementsByClassName('modal-title')[0];
+    var modalBody = document.getElementsByClassName('modal-body')[0];
+
+    var items = [
+        [1, 'How many items need assembly?',['Four','Five','Six']],
+        [3, 'What kind of furniture would you like assembled?',['Bed','Sofa','Cupboard']],
+        [5, 'Are you able to provide assembly instructions or make and model information?',['Yes','No']],
+        [5, 'Are you able to provide assembly instructions or make and model information?',['Yes','No']]
+    ];
+    var i=0;
+
+    $("#next").click(function(){
+
+        if(i<items.length-1){
+            i++;
+        }
+        modalTitle.innerHTML=items[i][1];
+        modalBody.innerHTML='';
+        for(var j=0;j<items[i][2].length;j++){
+            var node = document.createElement("P");                 // Create a <li> node
+            var textnode = document.createTextNode(items[i][2][j]);
+            node.appendChild(textnode);
+            modalBody.appendChild(node);
+        }
+        console.log(items);
+    });
+
+    $("#previous").click(function(){
+        if(i>0){
+            i--;
+        }
+        modalTitle.innerHTML=items[i][1];
+        modalBody.innerHTML='';
+        for(var j=0;j<items[i][2].length;j++){
+            var node = document.createElement("P");                 // Create a <li> node
+            var textnode = document.createTextNode(items[i][2][j]);
+            node.appendChild(textnode);
+            modalBody.appendChild(node);
+        }
+    });
+
+    $("#btnModal").click(function(){
+        modalTitle.innerHTML=items[i][1];
+        //modalBody.innerHTML=items[i][2].length;
+
+        for(var j=0;j<items[i][2].length;j++){
+            var node = document.createElement("P");                 // Create a <li> node
+            var textnode = document.createTextNode(items[i][2][j]);
+            node.appendChild(textnode);
+            modalBody.appendChild(node);
+        }
+
+    });
+    //console.log(items[i][2]['op1'].length);
+
+</script>
 
 </body>
 </html>
