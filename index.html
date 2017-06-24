@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>Services App</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -18,6 +18,12 @@
     footer {
       background-color: #f2f2f2;
       padding: 25px;
+    }
+
+    .jumbotron {
+        background-image: url("img/jumbotronbg.jpg");
+        background-size: cover;
+        color:white;
     }
   </style>
 </head>
@@ -55,33 +61,193 @@
 </div>
   
 <div class="container-fluid bg-3 text-center">
-  <h3>Popular in your area</h3><br>
+  <h3>Home Improvement</h3><br>
   <div class="row">
-    <div class="col-sm-3">
-      <a href="https://www.google.com" style="text-decoration: none">
+    <div class="col-sm-3" >
+
+        <div class="card" id="1" onclick="btnClick(this.id)" data-toggle="modal" data-target="#myModal1" style="cursor: pointer;">
+            <img class="card-img-top" src="img/interiordesign.jpg" style="width:100%"  alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Interior Design</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+<!--
       <p>Interior Design</p>
       <img src="img/interiordesign.jpg" class="img-responsive" style="width:100%" alt="Image">
-      </a>
+-->
     </div>
     <div class="col-sm-3">
-      <p>Furniture Assembly</p>
-      <img src="img/furnitureassembly.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <div class="card" id="2" onclick="btnClick(this.id)" data-toggle="modal" data-target="#myModal1" style="cursor: pointer;">
+            <img class="card-img-top" src="img/furnitureassembly.jpg" style="width:100%"  alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Furniture Assembly</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
+
+
+
     </div>
     <div class="col-sm-3">
-      <p>Home Cleaning</p>
-      <img src="img/homecleaning.jpg" class="img-responsive" style="width:100%" alt="Image">
+
+        <div class="card" id="3" onclick="btnClick(this.id)" data-toggle="modal" data-target="#myModal1" style="cursor: pointer;">
+            <img class="card-img-top" src="img/homecleaning.jpg" style="width:100%"  alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Home Cleaning</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
     </div>
+
     <div class="col-sm-3">
-      <p>Carpet Cleaning</p>
-      <img src="img/carpetcleaning.jpg" class="img-responsive" style="width:100%" alt="Image">
+        <div class="card" id="4" onclick="btnClick(this.id)" data-toggle="modal" data-target="#myModal1" style="cursor: pointer;">
+            <img class="card-img-top" src="img/carpetcleaning.jpg" style="width:100%"  alt="Card image cap">
+            <div class="card-block">
+                <h4 class="card-title">Carpet Cleaning</h4>
+                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+        </div>
     </div>
   </div>
 </div><br>
 <br>
 
 <footer class="container-fluid text-center">
-  <p>Footer Text</p>
+  <p>© 2017 Thumbtack, Inc.</p>
 </footer>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" id="previous"><span class="glyphicon glyphicon-menu-left"></span>Previous</button>
+                <button type="button" class="btn btn-primary" id="next" >Next<span class="glyphicon glyphicon-menu-right"></span></button>
+                <button type="button" class="btn btn-success" id="finish" data-dismiss="modal">Finish</button>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+    var modalTitle = document.getElementsByClassName('modal-title')[0];
+    var modalBody = document.getElementsByClassName('modal-body')[0];
+
+    var items1 =  [
+                    [1, 'How many items need assembly?',['Four','Five','Six']],
+                    [2, 'What kind of furniture would you like assembled?',['Bed','Sofa','Cupboard']],
+                    [3, 'Are you able to provide assembly instructions or make and model information?',['Yes','No']]
+                  ];
+
+    var items2 =  [
+        [1, 'What’s most important to you for this project?',['Stay Close to my budget','Work around my schedule','Getting quality service']],
+        [2, 'How many items need assembly?',['1 item','2 items','3 items','Others']],
+        [3, 'What kind of furniture would you like assembled?',['Bed Frame','Chair','Dresser']],
+        [4, 'Are you able to provide assembly instructions or make and model information?',['Yes','No']]
+    ];
+
+    console.log(items1[1][2][0]);
+
+    var items = [];
+
+    var i=0;
+
+    $('#next').click(function(){
+
+        if(i<items.length-1){
+            i++;
+            $('#previous').prop('disabled', false);
+        }
+        if(i==items.length-1){
+            $('#next').prop('disabled', true);
+            $('#finish').prop('disabled', false);
+        }
+        modalTitle.innerHTML=items[i][1];
+        modalBody.innerHTML='';
+        for(var j=0;j<items[i][2].length;j++){
+            var node = document.createElement("P");
+            var textnode = document.createTextNode(items[i][2][j]);
+            node.appendChild(textnode);
+            modalBody.appendChild(node);
+        }
+        console.log(items);
+    });
+
+    $('#previous').click(function(){
+        if(i>0){
+            i--;
+            $('#next').prop('disabled', false);
+            $('#finish').prop('disabled', true);
+            $('#previous').prop('disabled', false);
+        }if(i==0){
+            $('#previous').prop('disabled', true);
+        }
+
+        modalTitle.innerHTML=items[i][1];
+        modalBody.innerHTML='';
+        for(var j=0;j<items[i][2].length;j++){
+            var node = document.createElement("P");
+            var textnode = document.createTextNode(items[i][2][j]);
+            node.appendChild(textnode);
+            modalBody.appendChild(node);
+        }
+    });
+
+    //console.log(items[i][2]['op1'].length);
+
+    function btnClick(clicked_id){
+        //$('#previous').prop('disabled', true);
+        $('#next').prop('disabled', false);
+        $('#previous').prop('disabled', true);
+        $('#finish').prop('disabled', true);
+        items=[];
+        i=0;
+        modalTitle.innerHTML='';
+        modalBody.innerHTML='';
+        if(clicked_id==1){
+            items=items1;
+        } else if(clicked_id==2){
+            items=items2;
+        }
+
+        if(items.length<1){
+            $('#next').prop('disabled', true);
+            $('#finish').prop('disabled', false);
+        }
+
+        modalTitle.innerHTML=items[i][1];
+        modalBody.innerHTML='';
+        //modalBody.innerHTML=items[i][2].length;
+
+        //if(items.length>1){
+        //}
+
+        for(var j=0;j<items[i][2].length;j++){
+            var node = document.createElement("P");
+            var textnode = document.createTextNode(items[i][2][j]);
+            node.appendChild(textnode);
+            modalBody.appendChild(node);
+        }
+        //
+    }
+
+</script>
 
 </body>
 </html>
