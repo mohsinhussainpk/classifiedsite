@@ -24,6 +24,7 @@ var items = [];
 var options = [];
 
 var i = 0;
+var gsnap;
 
 $('#next').click(function () {
 
@@ -38,7 +39,8 @@ $('#next').click(function () {
     modalTitle.innerHTML = items[i];
     modalBody.innerHTML = '';
 
-    var ops = snapshot.child(i + '/options');
+    var ops = gsnap.child((i+1) + '/options');
+
     options = [];
     ops.forEach(function (j) {
         console.log(j.key + " " + j.val());
@@ -67,6 +69,15 @@ $('#previous').click(function () {
 
     modalTitle.innerHTML = items[i];
     modalBody.innerHTML = '';
+
+    var ops = gsnap.child((i+1) + '/options');
+
+    options = [];
+    ops.forEach(function (j) {
+        console.log(j.key + " " + j.val());
+        options.push(j.val());
+    });
+
     for (var j = 0; j < options.length; j++) {
         var node = document.createElement("P");
         var textnode = document.createTextNode(options[j]);
@@ -82,6 +93,8 @@ function btnClick(clicked_id) {
     servicesRef.on('value', function (snapshot) {
         var count = 0;
         items = [];
+
+        gsnap=snapshot;
 
         i = 0;
         snapshot.forEach(function () {
