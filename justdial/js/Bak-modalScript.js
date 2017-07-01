@@ -18,13 +18,11 @@ var items2 = [
     [4, 'Are you able to provide assembly instructions or make and model information?', ['Yes', 'No']]
 ];
 
-//console.log(items1[1][2][0]);
+console.log(items1[1][2][0]);
 
 var items = [];
-var options = [];
 
 var i = 0;
-var gsnap;
 
 $('#next').click(function () {
 
@@ -36,24 +34,15 @@ $('#next').click(function () {
         $('#next').prop('disabled', true);
         $('#finish').prop('disabled', false);
     }
-    modalTitle.innerHTML = items[i];
+    modalTitle.innerHTML = items[i][1];
     modalBody.innerHTML = '';
-
-    var ops = gsnap.child((i+1) + '/options');
-
-    options = [];
-    ops.forEach(function (j) {
-        console.log(j.key + " " + j.val());
-        options.push(j.val());
-    });
-
-    for (var j = 0; j < options.length; j++) {
+    for (var j = 0; j < items[i][2].length; j++) {
         var node = document.createElement("P");
-        var textnode = document.createTextNode(options[j]);
+        var textnode = document.createTextNode(items[i][2][j]);
         node.appendChild(textnode);
         modalBody.appendChild(node);
     }
-    //console.log(items);
+    console.log(items);
 });
 
 $('#previous').click(function () {
@@ -67,20 +56,11 @@ $('#previous').click(function () {
         $('#previous').prop('disabled', true);
     }
 
-    modalTitle.innerHTML = items[i];
+    modalTitle.innerHTML = items[i][1];
     modalBody.innerHTML = '';
-
-    var ops = gsnap.child((i+1) + '/options');
-
-    options = [];
-    ops.forEach(function (j) {
-        console.log(j.key + " " + j.val());
-        options.push(j.val());
-    });
-
-    for (var j = 0; j < options.length; j++) {
+    for (var j = 0; j < items[i][2].length; j++) {
         var node = document.createElement("P");
-        var textnode = document.createTextNode(options[j]);
+        var textnode = document.createTextNode(items[i][2][j]);
         node.appendChild(textnode);
         modalBody.appendChild(node);
     }
@@ -89,54 +69,38 @@ $('#previous').click(function () {
 //console.log(items[i][2]['op1'].length);
 
 function btnClick(clicked_id) {
-    var servicesRef = firebase.database().ref().child("Services/" + clicked_id + "/questions");
-    servicesRef.on('value', function (snapshot) {
-        var count = 0;
-        items = [];
-
-        gsnap=snapshot;
-
-        i = 0;
-        snapshot.forEach(function (test) {
-            count++;
-            console.log("Test::");
-            console.log(test.val());
-            items.push(snapshot.child(count + '/text').val());
-            console.log("Question Text:" + snapshot.child(count + '/text').val());
-
-            var ops = snapshot.child((i+1) + '/options');
-            options = [];
-            ops.forEach(function (j) {
-                options.push(j.val());
-            });
-
-
-        });
-        //console.log(items);
-        //console.log(snapshot.child('1/text').val());
-    });
     //$('#previous').prop('disabled', true);
     $('#next').prop('disabled', false);
     $('#previous').prop('disabled', true);
     $('#finish').prop('disabled', true);
-
-
+    items = [];
+    i = 0;
     modalTitle.innerHTML = '';
     modalBody.innerHTML = '';
+    if (clicked_id == 1) {
+        items = items1;
+    } else if (clicked_id == 2) {
+        items = items2;
+    }
 
     if (items.length < 1) {
         $('#next').prop('disabled', true);
         $('#finish').prop('disabled', false);
     }
 
-    modalTitle.innerHTML = items[i];
+    modalTitle.innerHTML = items[i][1];
     modalBody.innerHTML = '';
+    //modalBody.innerHTML=items[i][2].length;
 
-    for (var j = 0; j < options.length; j++) {
+    //if(items.length>1){
+    //}
+
+    for (var j = 0; j < items[i][2].length; j++) {
         var node = document.createElement("P");
-        var textnode = document.createTextNode(options[j]);
+        var textnode = document.createTextNode(items[i][2][j]);
         node.appendChild(textnode);
         modalBody.appendChild(node);
     }
+    //
 }
 

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Multiple Data</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,700" rel="stylesheet">
+
+
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+
+	<div class="mainDiv" align="left">
+		<h1 align="center">Multiple Data</h1>
+		<table align="center" class="table">
+			<thead class="thead-inverse">
+				<tr>
+					<td>Id</td>
+					<td>Name</td>
+					<td>Email</td>
+					<td>Action</td>
+				</tr>
+			</thead>
+			<tbody id="tableBody">
+
+			</tbody>
+		</table>
+		
+
+
+	</div>
+	<script src="js/firebase.js"></script>
+	<script>
+		// Initialize Firebase
+		var config = {
+			apiKey: "AIzaSyALQK60KiP0N1NyLKJhuiBVCrzc6gwysg4",
+			authDomain: "friendlychat-b4a6b.firebaseapp.com",
+			databaseURL: "https://friendlychat-b4a6b.firebaseio.com",
+			projectId: "friendlychat-b4a6b",
+			storageBucket: "friendlychat-b4a6b.appspot.com",
+			messagingSenderId: "830216025538"
+		};
+		firebase.initializeApp(config);
+	</script>
+	<script src="js/jquery-3.2.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/script.js"></script>
+
+</body>
+</html>

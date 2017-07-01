@@ -48,4 +48,8 @@ function itemChange(id,imgUrl,serviceName,serviceDesc) {
             '</div>';
 }
 
+function pushItem(){
+    
+}
+
 //

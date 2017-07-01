@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Bootstrap Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+    <div>
+        <h2>Services</h2>
+        <p>All Services Available</p>
+        <button id="btnBack()">Back</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Services</th>
+                </tr>
+            </thead>
+            <tbody id="tBody">
+
+            </tbody>
+        </table>
+        <button onclick="btnfoo()" id="btnAdd" class="btn btn-success">Add</button>
+    </div>
+</div>
+
+
+<script src="js/firebase.js"></script>
+<script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyALQK60KiP0N1NyLKJhuiBVCrzc6gwysg4",
+        authDomain: "friendlychat-b4a6b.firebaseapp.com",
+        databaseURL: "https://friendlychat-b4a6b.firebaseio.com",
+        projectId: "friendlychat-b4a6b",
+        storageBucket: "friendlychat-b4a6b.appspot.com",
+        messagingSenderId: "830216025538"
+    };
+    firebase.initializeApp(config);
+</script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
+
+
