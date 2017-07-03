@@ -60,7 +60,7 @@ function itemClick(id){
 
 
 function btnfoo(){
-    pusher("/categories/-Kny5qffpHGY9S5yZLp3/categories/-Kny6WxQTJAx551WNpnT");
+   // pusher("/categories/-Kny5qffpHGY9S5yZLp3/categories/-Kny6WxQTJAx551WNpnT");
 }
 
 function btnBack() {
@@ -77,37 +77,4 @@ function btnBack() {
 function pusher(id) {
     rootRef.child("-Kny4bwbijMFPM53sYQ1/categories/-Kny5qffpHGY9S5yZLp3/categories/-Kny6WxQTJAx551WNpnT/categories").push().set({'name':'AC Compressor'});
     rootRef.child("-Kny4bwbijMFPM53sYQ1/categories/-Kny5qffpHGY9S5yZLp3/categories/-Kny6WxQTJAx551WNpnT/categories").push().set({'name':'AC Manufacturers'});
-    /*
-    rootRef.child(id+"/categories").push().set({'name':'All Banquet Halls'});
-    rootRef.child(id+"/categories").push().set({'name':'5 Star Banquet Halls'});
-    rootRef.child(id+"/categories").push().set({'name':'AC Banquet Halls'});
-    rootRef.child(id+"/categories").push().set({'name':'Lawn For Events'});
-    rootRef.child(id+"/categories").push().set({'name':'Non AC Banquet Halls'});
-    */
-
-    /*
-    rootRef.child(id+"/categories").push().set({'name':'Electronics & Electrical Supplies'});
-    rootRef.child(id+"/categories").push().set({'name':'Industrial Machinery & Equipments'});
-    rootRef.child(id+"/categories").push().set({'name':'Construction Machinery & Supplies'});
-    rootRef.child(id+"/categories").push().set({'name':'Automobiles Spare Parts & Services'});
-    rootRef.child(id+"/categories").push().set({'name':'Industrial Supplies'});
-    rootRef.child(id+"/categories").push().set({'name':'Business Services & Consultants'});
-    rootRef.child(id+"/categories").push().set({'name':'Food & Beverages'});
-    rootRef.child(id+"/categories").push().set({'name':'Event Management'});
-    rootRef.child(id+"/categories").push().set({'name':'Apparels Clothing & Footwear'});
-    */
-
-    /*
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Air Conditioners Coolers & Heaters'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Batteries Inverters UPS Stabilisers & Transformers'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Bulbs Lamps & Decorative Lights'});
-    *//*
-    /rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'CCTV & Surveillance Products'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Computer Peripherals Printers Parts & Softwares'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Electricians'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Electronic Products & Appliances'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Industrial & Commercial Machineries'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Office Electronics'});
-    rootRef.child(id+"/categories/-Kny5qffpHGY9S5yZLp3/categories").push().set({'name':'Televisions Parts & Accessories'});
-*/
 }

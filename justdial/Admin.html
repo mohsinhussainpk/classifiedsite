@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Admin Panel</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="js/jquery-3.2.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+    </head>
+
+    <body>
+
+    <div class="container">
+            <div>
+                <h2>Services</h2>
+                <p>Admin Panel</p>
+                <button onclick="btnBack()" class="btn btn-primary">Back</button>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Services</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tBody">
+
+                    </tbody>
+                </table>
+                <button id="btnAdd" class="btn btn-info"  data-toggle="modal" data-target="#addModal">Add</button>
+            </div>
+        </div>
+
+
+        <script src="js/firebase.js"></script>
+        <script>
+            // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyALQK60KiP0N1NyLKJhuiBVCrzc6gwysg4",
+                authDomain: "friendlychat-b4a6b.firebaseapp.com",
+                databaseURL: "https://friendlychat-b4a6b.firebaseio.com",
+                projectId: "friendlychat-b4a6b",
+                storageBucket: "friendlychat-b4a6b.appspot.com",
+                messagingSenderId: "830216025538"
+            };
+            firebase.initializeApp(config);
+        </script>
+        <script src="js/adminScript.js"></script>
+
+        <!-- Modal Add Start-->
+        <div class="modal fade" id="addModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Add Item</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="txtItem" class="control-label">Add Service</label>
+                                <input type="text" class="form-control" id="txtItem">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="insert()" class="btn btn-primary" data-dismiss="modal" >Insert</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal Add End-->
+
+        <!-- Modal Delete Start-->
+        <div class="modal fade" id="deleteModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Delete Item</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <h3>Are you sure?</h3>
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="deleteItem()" class="btn btn-danger" data-dismiss="modal" >Delete</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal Delete End-->
+
+        <!-- Modal Update Start-->
+        <div class="modal fade" id="updateModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Update Item</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label for="recipient-name" class="form-control-label">Enter Item to update:</label>
+                                <input type="text" class="form-control" id="recipient-name">
+                            </div>
+
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="updateItem()" class="btn btn-success" data-dismiss="modal" >Update</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal" >Cancel</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- Modal Update End-->
+
+    </body>
+</html>
+
+
