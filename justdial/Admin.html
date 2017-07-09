@@ -8,7 +8,11 @@
         <script src="js/jquery-3.2.1.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
     </head>
-
+    <style>
+        button{
+            margin: 10px;
+        }
+    </style>
     <body>
 
     <div class="container">
@@ -16,6 +20,8 @@
                 <h2>Services</h2>
                 <p>Admin Panel</p>
                 <button onclick="btnBack()" class="btn btn-primary">Back</button>
+                <button id="btnAddBusiness" class="btn btn-info" data-toggle="modal" data-target="#addBusinessModal">Add Business</button>
+
                 <table class="table">
                     <thead>
                         <tr>
@@ -26,7 +32,8 @@
 
                     </tbody>
                 </table>
-                <button id="btnAdd" class="btn btn-info"  data-toggle="modal" data-target="#addModal">Add</button>
+                <button id="btnAdd" class="btn btn-info" style="margin-bottom: 20px;"  data-toggle="modal" data-target="#addModal">Add Category</button>
+                <button id="btnAssignBusiness" class="btn btn-info" style="margin-bottom: 20px;"  data-toggle="modal" data-target="#assignBusinessModal">Assign Business</button>
             </div>
         </div>
 
@@ -46,7 +53,7 @@
         </script>
         <script src="js/adminScript.js"></script>
 
-        <!-- Modal Add Start-->
+        <!-- Modal Add Category Start-->
         <div class="modal fade" id="addModal" role="dialog">
             <div class="modal-dialog">
 
@@ -73,7 +80,66 @@
 
             </div>
         </div>
-        <!-- Modal Add End-->
+        <!-- Modal Add Category End-->
+
+
+    <!-- Modal Add Business Start-->
+    <div class="modal fade" id="addBusinessModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Add Business</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtBusiness" class="control-label">Add Service</label>
+                            <input type="text" class="form-control" id="txtBusiness">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="insertBusiness()" class="btn btn-primary" data-dismiss="modal" >Add Business to this category</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal Business End-->
+
+    <!-- Modal Add Business Start-->
+    <div class="modal fade" id="assignBusinessModal" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Assign Business</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="txtBusiness" class="control-label">Add Business</label>
+                            <input type="text" class="form-control" id="txtAssignBusiness">
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" onclick="insertBusiness()" class="btn btn-primary" data-dismiss="modal" >Assign Business to this category</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" >Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Modal Business End-->
 
         <!-- Modal Delete Start-->
         <div class="modal fade" id="deleteModal" role="dialog">
